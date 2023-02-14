@@ -1,5 +1,5 @@
 # Travel Blog
-A web-based application that provides customers to upload their travel experince.
+A web-based application that provides customers to post their travel experiences.
 
 ## Our Goal:
 We have created this project to provide customers a travel blog that allows other customers to share their travel experience at the location.
