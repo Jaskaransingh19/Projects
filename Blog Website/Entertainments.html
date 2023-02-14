@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="./favicon.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="$CSS&display=swap" />
+    <link
+      rel="stylesheet"
+      href="$CSS&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Travel Blog</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+    <body>
+      <div class="modal-outer-container">
+        <div class="backdrop"></div>
+        <div class="modal">
+          <button class="modal-cancel">X</button>
+          <section class="modal__header"><h2>Write A Blog</h2></section>
+          <section class="modal__body">
+            <form>
+              <div class="form-field">
+                <label for="blog-title">Blog Title:</label> 
+                <input type="text" id="blog-title" name="blog-title"> 
+              </div>
+              <div class="form-field">
+                <label for="blog-description">Blog Description:</label> 
+                <textarea id="blog-description" name="blog-description" rows="4" cols="50"></textarea>
+              </div>
+              <div class="form-field">
+               
+                <input class="blue-btn" type="submit" id="submit" name="submit"> 
+              </div>
+            
+            </form>
+          </section>
+        </div>
+      </div>
+    <nav class="navbar">
+      <div class="logo">
+        <img
+        src="image05.png"  
+        style="width:175px; height:175px"
+        />
+      </div>
+      <div class="menu">
+        <ul>
+            <li><a href="Index.html" rel="import">Home</a></li>
+            <li><a href="AboutUs.html" rel="import">Our Team</a></li>
+            <li><a href="Hotels.html" rel="import">Hotels</a></li>
+            <li><a href="Resturants.html" rel="import">Resturants</a></li>
+            <li><a href="Entertainments.html" rel="import">Entertainments</a></li>
+            <li><a href="Contact.html" rel="import">Contact</a></li>
+            <li><a href="Safety.html" rel="import">Safety</a></li>
+        </ul>
+      </div>
+      <div class="sign-in-container">
+        <div id="signin" class="sign-in-button">
+          <a href="Signin.html" rel="import">Sign In</a>
+        </div>
+        <div id="signup" class="sign-in-button">
+          <a href="Signup.html" rel="import">Sign Up</a>
+        </div>
+      </div>
+      <div class="sign-out-container">
+        <div id="user-email">user@email.com</div>
+        <button id="sign-out" href="Signup.html" rel="import">Sign Out</button>
+      </div>
+    </nav>
+    <main class="body">
+      <header class="heading">
+     <!--Post Button-->
+     <div class="content">
+      <h1>Entertainments</h1>
+      <br>
+      <button id="write-blog-button" class="btn">Write a Blog</button>
+      </div>
+      </header>
+
+      <!--Blog Section-->
+      <section class="blogs-section">
+        <div class="blog-card">
+          <h1 class="blog-title">New Zealand Casinos</h1>
+          <p class="blog-overview"> New Zealand has six casinos in Auckland, Hamilton Christchurch, Queenstown and Dunedin. Auckland's Sky City is easily located by its Sky Tower - one of the tallest in the world, at 328m. Visit Sky Citys main casino for non-stop action and entertainment or the Alto Casino, which is the more intimate alternative.</p>
+        </div>
+      </section>
+    <!--Entertainment Section, where people can post and comment-->     
+      </div>
+    </main>
+    <footer class="footer">
+      <a href="copyright.html">Copyright</a>
+      <a href="terms.html">Terms and Conditions</a>
+      <a href="privacyPolicy.html">Privacy Policy</a>
+    </footer>
+    </body>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js'
+
+
+    // Add Firebase products that you want to use
+    import { getAuth } from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js'
+    import { getFirestore ,  collection, addDoc , getDocs} from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js'
+    //Firebase init  
+    const firebaseConfig = {
+        apiKey: "AIzaSyDPclfi3ax-tc5O-7YOyE9phqdwffkcpyU",
+        authDomain: "postform-88399.firebaseapp.com",
+        projectId: "postform-88399",
+        storageBucket: "postform-88399.appspot.com",
+        messagingSenderId: "299331736715",
+        appId: "1:299331736715:web:7da503fadde09545e9708e"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      
+      //Global vars
+      const blogTitle = document.querySelector("#blog-title");
+      const blogDescription = document.querySelector("#blog-description");
+      const submit = document.querySelector("#submit");
+
+      //Functions
+      const addCardToList = (card) => {
+        document.querySelector('.blogs-section').appendChild(card)
+      }
+      
+      const createPost = (data) => {
+        const cardDivEl = document.createElement('div')
+        const h1El = document.createElement('h1')
+        const pEl = document.createElement('p')
+        cardDivEl.classList.add('blog-card')
+        h1El.classList.add('blog-title')
+        h1El.innerHTML = data.title
+        pEl.classList.add('blog-overview')
+        pEl.innerHTML = data.description
+        cardDivEl.appendChild(h1El)
+        cardDivEl.appendChild(pEl)
+        return cardDivEl
+
+      }
+
+      const addPost = async(coll) => {
+        const postData = {
+              title: blogTitle.value,
+              description: blogDescription.value,
+      }
+
+        try {
+            const docRef = await addDoc(collection(db, coll), postData);
+            let post = createPost(postData)
+        addCardToList(post)
+        blogTitle.value = ''
+        blogDescription.value = ''
+            handleHideModal()
+          } catch (e) {
+            console.error("Error adding document: ", e);
+          }
+      }
+     
+      const getPosts = async(coll) => {
+      console.log('Getting post'); 
+      const querySnapshot = await getDocs(collection(db, coll));
+      querySnapshot.forEach((doc) => {
+        const data = {
+          title: doc.data().title,
+          description: doc.data().description
+        }
+        let post = createPost(data)
+        addCardToList(post)
+        
+      });
+      }
+      
+
+      ///Init
+      submit.addEventListener("click", (e) =>{
+        e.preventDefault()
+        addPost("entertainment")
+      });
+      getPosts("entertainment")
+      
+    </script>
+    
+    
+    
+    
+ 
+    <script src="modal.js"></script>
+    <script src="checkAuth.js"></script>
+ 
+</html>
