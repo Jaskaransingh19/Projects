@@ -17,7 +17,7 @@ Raza Bajwa, Back-End Developer
 
 ## Tech Stack:
 
-[Python](https://www.python.org/)  
+[JavaScript](https://www.javascript.com/)  
 [HTML & CSS](https://www.w3.org/standards/webdesign/htmlcss)  
 [JSON](https://www.json.org/json-en.html)  
 [Firebase](https://firebase.google.com/docs)  
