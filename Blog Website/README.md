@@ -2,7 +2,7 @@
 A web-based application that provides customers to post their travel experiences.
 
 ## Our Goal:
-We have created this project to provide customers a travel blog that allows other customers to share their travel experience at the location.
+We have created this project to provide customers a travel blog that allows other customers to share their travel experience and allow new travelers to get some insite on what to expect and what to do in their destination.
 
 ## About the Team:
 
