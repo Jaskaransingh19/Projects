@@ -27,7 +27,8 @@ Gabriel Sutton, Full-Stack Develiper
 [NewsCatcher API](https://newscatcherapi.com/)  
 [HTML & CSS](https://www.w3.org/standards/webdesign/htmlcss)  
 [JSON](https://www.json.org/json-en.html)  
-[Firebase](https://firebase.google.com/docs)  
+[Firebase](https://firebase.google.com/docs)
+[JavaScript](https://www.javascript.com)
 
 ## Resources:
 
