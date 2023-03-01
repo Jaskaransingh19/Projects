@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-US">
 	<head>
+		<meta charset="UTF-8">
+		<meta name="viewpoint" content="width=device-width", initial-scale="1.0">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="style.css">
@@ -11,10 +13,6 @@
 				<!-- News Logo -->
 				<img src="images/Logo.jpg">
 				<h1>JRG News</h1>
-				<!-- Have Search Bar Here-->
-				<form action="https://www.google.com/search" method="get" class="search-bar">
-					<input type="text" placeholder="Search..." name="q">
-				</form>
 				<!-- Social Media Icons-->
 				<div class="social-icons">
 					<i class="fab fa-facebook-f"></i>
@@ -22,6 +20,12 @@
 					<i class="fab fa-google-plus-g"></i>
 					<i class="fab fa-instagram"></i>
 					<i class="fas fa-rss"></i>
+				</div>
+				<!-- Have Search Bar Here-->
+				<div class="search-wrapper">
+					<form action="https://www.google.com/search" method="GET">
+					<input type="search" name="q" id="search" placeholder="Search...">
+					</form>
 				</div>
 			</div>
 			<nav class="navbar navbar-expand-md">
@@ -54,8 +58,23 @@
       </li>
     </ul>
   </div> 
-	        </nav>
-            <section class="more-news">
+			</nav>
+			<!-- Breaking News Section-->
+			<div class="breaking-news-section">
+				<span id="btext">Breaking News</span>
+				<marquee direction="left" onmouseover="this.stop()" onmouseout="this.start()">
+					<a href="#" class="breaking-news">
+						<p class="bntime">31 Jan 2023</p>
+						Biden to end covid national emergencies in May</a>
+					<a href="#" class="breaking-news"><p class="bntime">31 Jan 2023</p>Western allies differ over jets for Ukraine as Russia claims gains</a>
+					<a href="#" class="breaking-news"><p class="bntime">31 Jan 2023</p>Lakeland shooting leaves 10 injured, suspects at large</a>
+				</marquee>
+			</div>
+		</header>
+		<main>
+			<!-- Page Title-->
+			<h1 style="text-align: center;">ENTERTAINMENT</h1>
+			<section class="more-news">
 				<div class="news-section">
 					<!-- International News Section-->
 					<article class="international">
@@ -126,6 +145,7 @@
 				}
 			</script>
 		</footer>
+		<script src="script.js"></script>
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
