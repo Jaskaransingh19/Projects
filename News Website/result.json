@@ -1,11 +1,5 @@
-{
-    "status": "ok",
-    "total_hits": 113,
-    "page": 1,
-    "total_pages": 12,
-    "page_size": 10,
-    "articles": [
-        {
+[
+     {
             "title": "Dogecoin Holds Stronger Than Bitcoin, Ethereum Heading Into The Weekend: What To Watch",
             "author": "Melanie Schaffer",
             "published_date": "2023-02-10 21:57:27",
@@ -27,7 +21,7 @@
             "_id": "1d4e37d3a855ee5af830fe02a9300f5a"
         },
         {
-            "title": "‘$100 Billion Per Month'—Legendary Trader Makes Surprise Crypto U-Turn After Huge Bitcoin, Ethereum, BNB, XRP, Cardano, Dogecoin, Polygon And Solana Price Swings",
+            "title": "$100 Billion Per Month'—Legendary Trader Makes Surprise Crypto U-Turn After Huge Bitcoin, Ethereum, BNB, XRP, Cardano, Dogecoin, Polygon And Solana Price Swings",
             "author": "Billy Bambrough",
             "published_date": "2023-02-11 12:45:00",
             "published_date_precision": "full",
@@ -215,29 +209,4 @@
             "_score": 25.776266,
             "_id": "f0bbffbdb8ca6a08a92dcdf2a0ea64ac"
         }
-    ],
-    "user_input": {
-        "q": "Bitcoin AND Ethereum AND Dogecoin",
-        "search_in": [
-            "title_summary_en"
-        ],
-        "lang": [
-            "en"
-        ],
-        "not_lang": null,
-        "countries": null,
-        "not_countries": null,
-        "from": "2023-02-06 00:00:00",
-        "to": null,
-        "ranked_only": "True",
-        "from_rank": null,
-        "to_rank": 10000,
-        "sort_by": "relevancy",
-        "page": 1,
-        "size": 10,
-        "sources": null,
-        "not_sources": null,
-        "topic": null,
-        "published_date_precision": null
-    }
-}
+]
